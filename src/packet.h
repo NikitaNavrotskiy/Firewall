@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-enum fw_proto { TCP = 6, UDP = 17 };
+enum fw_proto { TCP = 6, UDP = 17, ANY = 18 };
 
 typedef struct {
   char daddr[16];

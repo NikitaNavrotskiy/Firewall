@@ -4,12 +4,13 @@
 #include <getopt.h>
 #include <stddef.h>
 
-typedef struct {
+typedef struct
+{
   char *arg_i;
   char *arg_f;
   char *arg_o;
 } fw_opt_t;
 
-int fw_opt_get(int argc, char **argv, fw_opt_t *options);
+int fw_opt_get (int argc, char **argv, fw_opt_t *options);
 
 #endif //_FIREWALL_SRC_ARG_H
