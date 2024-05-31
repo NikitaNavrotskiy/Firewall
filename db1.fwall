@@ -1,0 +1,2 @@
+src: 1.1.1.1/24 DROP
+dst: 2.2.2.2 dport: 4444 proto: udp ACCEPT

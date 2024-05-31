@@ -8,9 +8,9 @@ SRC = $(wildcard src/*.c)
 OBJ = $(patsubst %.c, %.o, $(SRC))
 
 GCOV_FLAGS = --coverage
-TEST_FLAGS = -fsanitize=address -fsanitize=leak
-TEST_SRC = $(wildcard test/*.c)
-TEST_OBJ = $(patsubst %.c, %.o, $(TEST_SRC))
+TEST_FLAGS = -fsanitize=address -fsanitize=leak -g -lcheck
+TEST_SRC = test/*.c src/convert.c src/firewall_db.c src/rule.c
+TEST_EXEC = $(NAME)_test
 
 STYLE=GNU
 
@@ -21,9 +21,19 @@ all: clean $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $^ $(TEST_FLAGS) -o $@ -lasan -lubsan
 
+test: clean $(TEST_SRC)
+	$(CC) $(TEST_SRC) $(TEST_FLAGS) -o $(TEST_EXEC)
+
 
 debug: clean
-	$(CC) -g $(CFLAGS) $(SRC) -o debug  
+	$(CC) -g $(CFLAGS) $(SRC) -o debug
+
+gcov: clean 
+	$(CC) $(CFLAGS) $(GCOV_FLAGS) $(TEST_SRC) -o $(TEST_EXEC) $(TEST_FLAGS)
+	./$(TEST_EXEC)
+	lcov -t "$(TEST_EXEC)" -o $(TEST_EXEC)_gcov.info -c -d .
+	genhtml -o report $(TEST_EXEC)_gcov.info
+	open report/index.html
 
 
 .c.o:
@@ -31,7 +41,10 @@ debug: clean
 
 
 clean:
-	rm -rf $(OBJ) $(TEST_OBJ) $(NAME) debug
+	rm -rf $(OBJ) $(NAME) debug
+	rm -rf $(TEST_EXEC) a.out
+	rm -rf *.info *.gcda *.gcno
+	rm -rf report/
 
 
 style:

@@ -10,16 +10,18 @@
 enum fw_action { ACCEPT, DROP };
 
 typedef struct fw_rule {
-  char daddr[16];
-  char saddr[16];
-  uint16_t dport;
+  uint32_t saddr;
+  uint32_t daddr;
+  struct fw_rule *next;
   uint16_t sport;
+  uint16_t dport;
   enum fw_proto proto;
   enum fw_action action;
-  struct fw_rule *next;
+  uint8_t smask;
+  uint8_t dmask;
 } fw_rule_t;
 
-fw_rule_t *fw_rule_new(const char saddr[16], const char daddr[16],
+fw_rule_t *fw_rule_new(uint32_t src, uint8_t smask, uint32_t dst, uint8_t dmask,
                        uint16_t sport, uint16_t dport, enum fw_proto proto,
                        enum fw_action action, fw_rule_t *next);
 
