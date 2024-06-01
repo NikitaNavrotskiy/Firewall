@@ -1,6 +1,6 @@
 NAME=fwall
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -O3 -Wall -Wextra -Werror -fstack-protector-all -pie 
 
 BUILD_DIR = build/
 DOC_DIR = docs
@@ -23,7 +23,7 @@ all: clean $(NAME) $(UTIL_NAME)
 
 
 $(NAME): $(OBJ)
-	$(CC) $^ $(TEST_FLAGS) -o $@ -lasan -lubsan
+	$(CC) $^ $(CFLAGS) -o $@
 	mv $@ $(BUILD_DIR)
 
 $(UTIL_NAME): $(OBJ)
@@ -32,6 +32,7 @@ $(UTIL_NAME): $(OBJ)
 
 test: clean $(TEST_SRC)
 	$(CC) $(TEST_SRC) $(TEST_FLAGS) -o $(TEST_EXEC)
+	./$(TEST_EXEC)
 
 
 debug: clean
@@ -47,7 +48,6 @@ gcov: clean
 
 .c.o:
 	$(CC) -c $(CFLAGS) $< -o $@
-
 
 doc:
 	doxygen

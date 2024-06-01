@@ -1,6 +1,6 @@
 NAME=gen_fwall
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -O3 -Wall -Wextra -Werror -fstack-protector-all -pie
 
 BUILD_DIR = ../../build
 
@@ -18,11 +18,11 @@ all: clean $(NAME)
 
 
 $(NAME): $(OBJ) $(OTHER_OBJ)
-	$(CC) $^ $(TEST_FLAGS) -o $@ -lasan -lubsan
+	$(CC) $^ $(CFLAGS) -o $@
 	mv $@ $(BUILD_DIR)
 
 $(OTHER_OBJ): 
-	$(CC) $^ $(TEST_FLAGS) -o $@ -lasan -lubsan
+	$(CC) $^ $(CFLAGS) -o $@
 
 .c.o:
 	$(CC) -c $(CFLAGS) $< -o $@
