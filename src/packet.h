@@ -10,8 +10,8 @@ enum fw_proto { NONE = 0, TCP = 6, UDP = 17, ANY = 18 };
 typedef struct {
   uint32_t saddr;
   uint32_t daddr;
-  uint16_t dport;
   uint16_t sport;
+  uint16_t dport;
   enum fw_proto proto;
 } fw_packet_t;
 

@@ -5,9 +5,11 @@
 
 #include "../src/convert.h"
 #include "../src/firewall_db.h"
+#include "../src/process.h"
 #include "../src/rule.h"
 
 Suite *suite_convert();
 Suite *suite_rules_load();
+Suite *suite_match();
 
 #endif

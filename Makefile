@@ -39,8 +39,8 @@ debug: clean
 gcov: clean 
 	$(CC) $(CFLAGS) $(GCOV_FLAGS) $(TEST_SRC) -o $(TEST_EXEC) $(TEST_FLAGS)
 	./$(TEST_EXEC)
-	lcov -t "$(TEST_EXEC)" -o $(TEST_EXEC)_gcov.info -c -d .
-	genhtml -o report $(TEST_EXEC)_gcov.info
+	lcov -t "$(TEST_EXEC)" -o $(TEST_EXEC)_gcov.info -c -d . --rc lcov_branch_coverage=1
+	genhtml -o report $(TEST_EXEC)_gcov.info --rc lcov_branch_coverage=1
 	open report/index.html
 
 

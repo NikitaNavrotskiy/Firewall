@@ -1,4 +1,7 @@
-  src: 1.1.1.1  ACCEPT
+src:      6.6.6.6/18  sport:  4444 dst:    7.7.7.7/1   dport:  5555 proto: udp ACCEPT
+
+
+src: 1.1.1.1  ACCEPT
     src: 2.2.2.2/23 DROP
     src: 3.3.3.3/33 ACCEPT
 src: 256.1.1.1 ACCEPT
@@ -17,5 +20,4 @@ proto: udp ACCEPT
 proto: tcp DROP
 proto: icmp ACCEPT
 
-src:      6.6.6.6/18  sport:  4444 dst:    7.7.7.7/1   dport:  5555 proto: udp ACCEPT
 

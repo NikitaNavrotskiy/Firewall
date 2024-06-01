@@ -8,7 +8,7 @@ void run_one_test(Suite *test) {
 }
 
 void run_tests() {
-  Suite *list[] = {suite_convert(), suite_rules_load(), NULL};
+  Suite *list[] = {suite_convert(), suite_rules_load(), suite_match(), NULL};
 
   for (Suite **cur = list; *cur; cur++)
     run_one_test(*cur);
