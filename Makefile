@@ -3,6 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 BUILD_DIR = build/
+DOC_DIR = docs
 
 UTIL_NAME = gen_$(NAME)
 UTIL_PATH = util/gen_packet
@@ -48,15 +49,20 @@ gcov: clean
 	$(CC) -c $(CFLAGS) $< -o $@
 
 
+doc:
+	doxygen
+	open $(DOC_DIR)/html/index.html
+
+
 clean:
 	rm -rf $(OBJ) $(NAME) debug
 	rm -rf $(UTIL_OBJ) $(UTIL_NAME)
 	rm -rf $(TEST_EXEC) a.out
 	rm -rf *.info *.gcda *.gcno
-	rm -rf report/ build/*
+	rm -rf report/ $(BUILD_DIR)* $(DOC_DIR)/*
 	make -C $(UTIL_PATH) clean
 
 
 style:
 	clang-format -style=$(STYLE) -i $(SRC) src/*.h
-	make -C $(UTIL_PATH)
+	make -C $(UTIL_PATH) style

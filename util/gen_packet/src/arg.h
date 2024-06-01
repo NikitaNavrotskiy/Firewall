@@ -9,12 +9,13 @@
 
 #include "generator.h"
 
-typedef struct {
+typedef struct
+{
   uint64_t timeout;
   uint64_t count;
   char *arg_o;
 } gen_opt_t;
 
-int gen_opt_get(int argc, char **argv, gen_opt_t *options);
+int gen_opt_get (int argc, char **argv, gen_opt_t *options);
 
 #endif //_FIREWALL_SRC_ARG_H

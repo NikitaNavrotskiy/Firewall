@@ -14,12 +14,13 @@
 
 #define GEN_COUNT_DEFAULT 10
 
-uint32_t gen_generate_ip();
+uint32_t gen_generate_ip ();
 
-uint16_t gen_generate_port();
+uint16_t gen_generate_port ();
 
-enum fw_proto gen_generate_proto();
+enum fw_proto gen_generate_proto ();
 
-void gen_generator_proc(FILE *fd_out, uint64_t count, uint64_t milsec_timeout);
+void gen_generator_proc (FILE *fd_out, uint64_t count,
+                         uint64_t milsec_timeout);
 
 #endif
