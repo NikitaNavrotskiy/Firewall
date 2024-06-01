@@ -20,7 +20,8 @@
  * @var count Stores number of packets to generate.
  * @var arg_o Stores output file.
  */
-typedef struct {
+typedef struct
+{
   /**
    * @brief Stores timeout between packets.
    */
@@ -46,6 +47,6 @@ typedef struct {
  * @param options struct gen_opt to write options.
  * @return Status code. 0 on success.
  */
-int gen_opt_get(int argc, char **argv, gen_opt_t *options);
+int gen_opt_get (int argc, char **argv, gen_opt_t *options);
 
 #endif //_FIREWALL_SRC_ARG_H

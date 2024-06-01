@@ -30,21 +30,21 @@
  *
  * @return Ip address in uint32_t representation.
  */
-uint32_t gen_generate_ip();
+uint32_t gen_generate_ip ();
 
 /**
  * @brief Function to generate random port number.
  *
  * @return Port number.
  */
-uint16_t gen_generate_port();
+uint16_t gen_generate_port ();
 
 /**
  * @brief Function to generate random protocol.
  *
  * @return Protocol.
  */
-enum fw_proto gen_generate_proto();
+enum fw_proto gen_generate_proto ();
 
 /**
  * @brief Function that generates packets to fd_out.
@@ -54,6 +54,7 @@ enum fw_proto gen_generate_proto();
  * @param milsec_timeout Timeout between packets in
  * milleseconds.
  */
-void gen_generator_proc(FILE *fd_out, uint64_t count, uint64_t milsec_timeout);
+void gen_generator_proc (FILE *fd_out, uint64_t count,
+                         uint64_t milsec_timeout);
 
 #endif

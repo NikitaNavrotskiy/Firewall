@@ -15,7 +15,8 @@
  * TCP Tcp protocol.
  * UDP Udp protocol.
  */
-enum fw_proto {
+enum fw_proto
+{
   /**
    * @brief Any protocol.
    */
@@ -41,7 +42,8 @@ enum fw_proto {
  * @var dport Destination port.
  * @var proto Protocol (6 - TCP, 17 - UDP).
  */
-typedef struct fw_packet {
+typedef struct fw_packet
+{
   /**
    * @brief Source ip address.
    */
@@ -78,7 +80,7 @@ typedef struct fw_packet {
  * @param dport Destination port.
  * @param proto Protocol.
  */
-void fw_packet_fill(fw_packet_t *packet, const char *saddr, const char *daddr,
-                    int sport, int dport, int proto);
+void fw_packet_fill (fw_packet_t *packet, const char *saddr, const char *daddr,
+                     int sport, int dport, int proto);
 
 #endif //_FIREWALL_SRC_PACKET_H

@@ -16,7 +16,8 @@
  * ACCEPT Accept packet.
  * DROP Drop packet.
  */
-enum fw_action {
+enum fw_action
+{
   /**
    * @brief Accept packet.
    */
@@ -41,7 +42,8 @@ enum fw_action {
  * @var smask Subnet mask for source ip address.
  * @var dmask Subnet mask for destination ip address.
  */
-typedef struct fw_rule {
+typedef struct fw_rule
+{
   /**
    * @brief Source ip address.
    */
@@ -102,8 +104,9 @@ typedef struct fw_rule {
  * @param next Pointer to the next rule.
  * @return fw_rule_t * New rule.
  */
-fw_rule_t *fw_rule_new(uint32_t src, uint8_t smask, uint32_t dst, uint8_t dmask,
-                       uint16_t sport, uint16_t dport, enum fw_proto proto,
-                       enum fw_action action, fw_rule_t *next);
+fw_rule_t *fw_rule_new (uint32_t src, uint8_t smask, uint32_t dst,
+                        uint8_t dmask, uint16_t sport, uint16_t dport,
+                        enum fw_proto proto, enum fw_action action,
+                        fw_rule_t *next);
 
 #endif //_FIREWALL_SRC_RULE_H
