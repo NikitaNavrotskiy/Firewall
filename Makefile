@@ -16,6 +16,8 @@ TEST_FLAGS = -fsanitize=address -fsanitize=leak -g -lcheck
 TEST_SRC = test/*.c src/convert.c src/firewall_db.c src/rule.c
 TEST_EXEC = $(NAME)_test
 
+MAKE_BUILD_DIR = mkdir -p $(BUILD_DIR)
+
 STYLE=GNU
 
 
@@ -23,10 +25,12 @@ all: clean $(NAME) $(UTIL_NAME)
 
 
 $(NAME): $(OBJ)
+	$(MAKE_BUILD_DIR)
 	$(CC) $^ $(CFLAGS) -o $@
 	mv $@ $(BUILD_DIR)
 
 $(UTIL_NAME): $(OBJ)
+	$(MAKE_BUILD_DIR)
 	make -C $(UTIL_PATH)
 
 
