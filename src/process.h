@@ -20,9 +20,9 @@
 /**
  * @brief Regular expression for ip address.
  */
-#define FW_REGEX_IP                                                            \
-  "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?"  \
-  "["                                                                          \
+#define FW_REGEX_IP                                                           \
+  "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?" \
+  "["                                                                         \
   "0-9][0-9]?)$"
 
 /**
@@ -33,7 +33,7 @@
 /**
  * @brief Format string for fprintf to write log.
  */
-#define FW_PROCESS_LOG_FORMAT                                                  \
+#define FW_PROCESS_LOG_FORMAT                                                 \
   "INFO\tsrc: %-s:%-10hu\tdst: %-s:%-10hu\tproto: %3s\tstatus: %6s\n"
 
 /**
@@ -43,6 +43,6 @@
  * @param rules Pointer to head of forward list with rules.
  * @return Status code.
  */
-int fw_process_input(fw_opt_t *options, fw_rule_t *rules);
+int fw_process_input (fw_opt_t *options, fw_rule_t *rules);
 
 #endif
