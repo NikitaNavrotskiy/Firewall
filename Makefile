@@ -1,6 +1,7 @@
 NAME=fwall
 CC = gcc
 CFLAGS = -O3 -Wall -Wextra -Werror -fstack-protector-all -pie 
+DISTRO = $(shell lsb_release -a 2>/dev/null| grep Distributor | cut -d ':' -f2 | tr -d '\t')
 
 BUILD_DIR = build/
 DOC_DIR = docs
@@ -19,6 +20,11 @@ TEST_EXEC = $(NAME)_test
 MAKE_BUILD_DIR = mkdir -p $(BUILD_DIR)
 
 STYLE=GNU
+
+
+ifeq ($(DISTRO), Ubuntu)
+	TEST_FLAGS += -lm -lsubunit
+endif
 
 
 all: clean $(NAME) $(UTIL_NAME)
