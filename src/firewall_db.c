@@ -240,8 +240,7 @@ fw_rule_t *fw_rule_from_file(const char *file) {
   if (!fd)
     return NULL;
 
-  while (head == NULL) { // getting head
-    getline(&line, &len, fd);
+  while (head == NULL && getline(&line, &len, fd) != -1) { // getting head
     last = __fw_rule_getline(NULL, line, &regex);
     head = last;
   }
