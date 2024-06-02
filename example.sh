@@ -19,8 +19,8 @@ if [ ! -f $INPUT_FILE ]; then
 	exit 1
 fi
 
-echo -e "---------------Firewall rules---------------\n"
+echo -e "--------------- Firewall rules ---------------\n"
 cat $FWALL_RULES
-echo -e "\n---------------FWALL OUPUT---------------\n"
+echo -e "\n--------------- Firwall output ---------------\n"
 
 $FWALL_ELF -f $FWALL_RULES -i $INPUT_FILE
