@@ -48,5 +48,6 @@ gen_generator_proc (FILE *fd_out, uint64_t count, uint64_t milsec_timeout)
     {
       __gen_proc_line (fd_out);
       usleep (milsec_timeout);
+      fflush (fd_out);
     }
 }
