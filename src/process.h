@@ -34,7 +34,7 @@
  * @brief Format string for fprintf to write log.
  */
 #define FW_PROCESS_LOG_FORMAT                                                  \
-  "INFO\tsrc: %-15s:%-5hu\tdst: %-15s:%-5hu\tproto: %3s\tstatus: %6s\n"
+  "INFO\tsrc: %-s:%-10hu\tdst: %-s:%-10hu\tproto: %3s\tstatus: %6s\n"
 
 /**
  * @brief Function that process input packets.

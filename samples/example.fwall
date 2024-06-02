@@ -1,0 +1,4 @@
+src: 192.168.1.1 sport: 22 dst: 192.168.1.66 dport: 1022 proto: tcp DROP
+src: 192.168.5.7 sport: 80 dst: 192.168.5.3 dport: 80 proto: udp DROP
+src: 192.168.1.1/24 sport: 22 dst: 192.168.1.64/24 dport: 1022 proto: tcp ACCEPT
+src: 192.168.5.1/29 sport: 80 dst: 192.168.5.1/29 dport: 80 proto: udp ACCEPT
