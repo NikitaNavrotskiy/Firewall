@@ -27,6 +27,7 @@ all: clean $(NAME) $(UTIL_NAME)
 $(NAME): $(OBJ)
 	$(MAKE_BUILD_DIR)
 	$(CC) $^ $(CFLAGS) -o $@
+	strip $(NAME)
 	mv $@ $(BUILD_DIR)
 
 $(UTIL_NAME): $(OBJ)

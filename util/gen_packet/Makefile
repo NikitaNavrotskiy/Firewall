@@ -19,6 +19,7 @@ all: clean $(NAME)
 
 $(NAME): $(OBJ) $(OTHER_OBJ)
 	$(CC) $^ $(CFLAGS) -o $@
+	strip $(NAME)
 	mv $@ $(BUILD_DIR)
 
 $(OTHER_OBJ): 
